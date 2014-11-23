@@ -9,6 +9,5 @@
 import Foundation
 
 let h = "Hello"
-var n = "Taylor"
-n += " Swift"
+var n = "Taylor"; n += " Swift"
 println("\(h), \(n) !")
