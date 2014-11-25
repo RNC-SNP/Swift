@@ -106,3 +106,37 @@ for i in 0 ..< array1.count { //Use `..<` to travel an Array.
 for (index, value) in enumerate(array1) { //Use `enumerate` to travel an Array.
     println("\(index): \(value)")
 }
+
+
+// Dictionary:
+var dic1 = Dictionary<String, Int>() //Initialize a empty Dictionary.
+var dic2 = [String : Int]()
+
+var dic3 : Dictionary<String, Int> = ["Rinc" : 25, "Emma": 24] //Initialize a Dictionary with elements.
+var dic4 : [String : Int] = ["Rinc" : 25, "Emma": 24]
+var dic5 = ["Rinc" : 25, "Emma": 24]
+dic5 = [:] //Make a Dictionary empty.
+println("dic5: \(dic5)")
+
+dic5["Rinc"] = 25 //Set Key-Value.
+dic5["Emma"] = 24
+let oldValue1 = dic5.updateValue(26, forKey: "Rinc") //Call `updateValue` to update K-V and return the old value.
+println("oldValue1: \(oldValue1)")
+
+for (k, v) in dic5 { //Travel Dictionary by Key-Value.
+    println("\(k): \(v)")
+}
+
+//let keys = Array(dic5.keys)
+for kk in dic5.keys { //Travel Dictionary by Keys.
+    println("\(kk): \(dic5[kk])")
+}
+
+//let values = Array(dic5.values)
+for vv in dic5.values { //Travel Dictionary by Values.
+    println("\(vv)")
+}
+
+dic5["Rinc"] = nil //Clear value.
+let oldValue2 = dic5.removeValueForKey("Emma")
+println("oldValue2: \(oldValue2)")
