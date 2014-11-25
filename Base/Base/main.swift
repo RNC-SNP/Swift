@@ -184,3 +184,14 @@ case (x, y, z) where x * y * z == 0://Use `where` in `case`
 default:
     println()
 }
+
+
+// Label:
+forLabel: for i in 0 ..< 10 {
+    for j in 1 ..< 9 {
+        println("i: \(i), j: \(j)")
+        if i + j > 10 {
+            break forLabel
+        }
+    }
+}
