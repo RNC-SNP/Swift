@@ -45,6 +45,14 @@ for uchar in str2.unicodeScalars { //Travel unicodes in String.
 }
 
 
+// Optional-Type:
+var iStr : String = "8964"
+//Just like `Maybe` type in Haskell, `theType?` means `nil` or `theType`.
+//This is usually used while type converting.
+var ix : Int? = iStr.toInt()
+println("ix: \(ix)")
+
+
 // Tuple:
 let people1 = ("Rinc", age : 25, 1.61) //You can specify the property's name in front of it.
 println("people1: \(people1), age1: \(people1.age)")
@@ -68,10 +76,10 @@ for i in 0 ..< names.count { //i: 0->names.count-1
 
 
 // Array:
-var array1 : Array<Int> = [1, 3, 5, 7, 9] //The first way to initialize an Array.
+var array1 : Array<Int> = [1, 3, 5, 7, 9]
 println("array1: \(array1)")
 
-var array2 : [Int] = [0, 2, 4, 6, 8] //The second way to initialize an Array.
+var array2 : [Int] = [0, 2, 4, 6, 8]
 println("array2: \(array2)")
 
 var array3 = [Character](count: 10, repeatedValue: "X") //Like in C++, you can initialize an Array with specified capacity and default value.
