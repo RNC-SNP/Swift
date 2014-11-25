@@ -140,3 +140,47 @@ for vv in dic5.values { //Travel Dictionary by Values.
 dic5["Rinc"] = nil //Clear value.
 let oldValue2 = dic5.removeValueForKey("Emma")
 println("oldValue2: \(oldValue2)")
+
+
+// `switch` & `fallthrough`:
+//Just like in Golang, `switch` expression will not `fallthrough` the cases in default.
+let day : String = "Sunday"
+switch day
+{
+case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
+    println("\(day) is on weekdays.")
+case "Saturday", "Sunday":
+    print("\(day) is on weekends")
+    fallthrough
+default:
+    println(".")
+}
+
+var bytes : Double = 1234567890
+switch bytes
+{ //Use `..<` in `switch`
+case 0 ..< 1024:
+    println("\(bytes) B")
+case 1024 ..< 1024 * 1024:
+    println("\(bytes / 1024) KB")
+case 1024 * 1024 ..< 1024 * 1024 * 1024:
+    println("\(bytes / 1024 / 1024) MB")
+case 1024 * 1024 * 1024 ..< 1024 * 1024 * 1024 * 1024:
+    println("\(bytes / 1024 / 1024 / 1024) GB")
+case 1024 * 1024 * 1024 * 1024 ..< 1024 * 1024 * 1024 * 1024:
+    println("\(bytes / 1024 / 1024 / 1024 / 1024) TB")
+default:
+    println("Overflow...")
+}
+
+let point = (-1, 2, 0)
+switch point
+{ //Use Tuple in `switch`
+case (let x, _, _): //Use `let` & `_` in `case`
+    println("x: \(x)")
+    fallthrough
+case (x, y, z) where x * y * z == 0://Use `where` in `case`
+    println("x: \(x), y: \(y), z: \(z)")
+default:
+    println()
+}
