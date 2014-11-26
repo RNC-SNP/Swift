@@ -179,7 +179,7 @@ switch point
 case (let x, _, _): //Use `let` & `_` in `case`
     println("x: \(x)")
     fallthrough
-case (x, y, z) where x * y * z == 0://Use `where` in `case`
+case (x, y, z) where x * y * z == 0://Use `where` in `case`, like in Haskell.
     println("x: \(x), y: \(y), z: \(z)")
 default:
     println()
@@ -226,7 +226,7 @@ default:
     println("Unknown PC OS.")
 }
 
-enum Product //Define a Tuple-Enum type.
+enum Product //Define a Tuple-Enum type, like in Rust.
 {
     case Car(String, Int)
     case Phone(String, String)
