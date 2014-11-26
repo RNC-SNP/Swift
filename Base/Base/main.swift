@@ -195,3 +195,59 @@ forLabel: for i in 0 ..< 10 {
         }
     }
 }
+
+
+// Enum:
+enum MobileOS //Define an Enum type.
+{
+    case Android
+    case iOS
+    case WindowsPhone
+    case BalckBerry
+    case Symbian
+}
+enum PCOS //Define an Enum type.
+{
+    case Windows, OSX, Ubuntu
+}
+
+var pcos = PCOS.Windows //Initialize an Enum variable.
+pcos = .OSX //Assign a new value to an initialized Enum variable.
+
+switch pcos //Use `switch` with `Enum`.
+{
+case .Windows:
+    println("Microsoft Windows.")
+case .OSX:
+    println("Apple OS X.")
+case .Ubuntu:
+    println("Canonical Ubuntu.")
+default:
+    println("Unknown PC OS.")
+}
+
+enum Product //Define a Tuple-Enum type.
+{
+    case Car(String, Int)
+    case Phone(String, String)
+}
+
+let product1 = Product.Car("Porsche 911", 13_380_000) //Initialize Tuple-Enum type variables.
+let product2 = Product.Phone("Nexus 5", "Android 5.0")
+
+switch product2 //Use `switch` with Tuple-Enum.
+{
+case .Car(let name, let price):
+    println("Car(name: \(name), price: \(price))")
+case .Phone(let name, let os):
+    println("Phone(name: \(name), os: \(os))")
+}
+
+enum Planet : Int //Define an Enum with a specified type.
+{ //Give the frst element a default value, then the others' values can be deducted.
+    case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+}
+println("Earth: \(Planet.Earth.rawValue)") //Read the Enum variable's raw value.
+
+let possiblePlanet : Planet? = Planet(rawValue : 8) //Initialize an Enum variable from a raw value.
+println("Does possiblePlanet exist: \(possiblePlanet != nil)")
