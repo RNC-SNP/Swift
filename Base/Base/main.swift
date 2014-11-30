@@ -13,6 +13,7 @@ import Foundation
 typealias NameType = String //Just like `typedef` in C/C++, or `type` in Golang.
 
 
+
 // Declare variables:
 var i : Int = 25
 var f = 12345.0; f += 0.56789
@@ -21,15 +22,18 @@ var l = 9_876_543_210 //Use `_` to devide large numbers, this way can make them 
 println("i: \(i), f: \(f), d: \(d), l: \(l)")
 
 
+
 // Declare constants:
 let name : NameType = "Rinc"
 let pi = 3.1415926535
 println("name: \(name), pi: \(pi)")
 
 
+
 // Character:
 let char : Character = "X" //A Character MUST be put in `""`, which is different from many other languages.
 println("char: \(char)")
+
 
 
 // String:
@@ -45,12 +49,14 @@ for uchar in str2.unicodeScalars { //Travel unicodes in String.
 }
 
 
+
 // Optional-Type:
 var iStr : String = "8964"
 //Just like `Maybe` type in Haskell, `theType?` means `nil` or `theType`.
 //This is usually used while type converting.
 var ix : Int? = iStr.toInt()
 println("ix: \(ix)")
+
 
 
 // Tuple:
@@ -63,6 +69,7 @@ println("name1: \(name1), age1: \(age1)")
 var (x, y, z) = (1, 2, 3) //Use tuple to init variable list
 
 
+
 // `...` & `..<`
 let names = ["Andy", "Bob", "Chris", "Denny", "Emma", "Frank", "Rinc"]
 /*
@@ -73,6 +80,7 @@ for i in 0 ... names.count { //i: 0->names.count
 for i in 0 ..< names.count { //i: 0->names.count-1
     println("\(i): \(names[i])")
 }
+
 
 
 // Array:
@@ -108,6 +116,7 @@ for (index, value) in enumerate(array1) { //Use `enumerate` to travel an Array.
 }
 
 
+
 // Dictionary:
 var dic1 = Dictionary<String, Int>() //Initialize a empty Dictionary.
 var dic2 = [String : Int]()
@@ -140,6 +149,7 @@ for vv in dic5.values { //Travel Dictionary by Values.
 dic5["Rinc"] = nil //Clear value.
 let oldValue2 = dic5.removeValueForKey("Emma")
 println("oldValue2: \(oldValue2)")
+
 
 
 // `switch` & `fallthrough`:
@@ -186,6 +196,7 @@ default:
 }
 
 
+
 // Label:
 forLabel: for i in 0 ..< 10 {
     for j in 1 ..< 9 {
@@ -195,6 +206,7 @@ forLabel: for i in 0 ..< 10 {
         }
     }
 }
+
 
 
 // Enum:
