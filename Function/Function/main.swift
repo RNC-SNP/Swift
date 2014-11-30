@@ -101,15 +101,19 @@ printContact(name: "Taylor", email: "taylor.swift@gmail.com")
 //
 //  A function may have at most one variadic parameter, and it must always appear last in the parameter list,
 //  to avoid ambiguity when calling the function with multiple parameters.
-func printContact(name : String, emails: [String]) {
+func printContact(name : String, emails: String...) {
     print("\(name):")
+    // Read variadic parameters as an Array:
     for email in emails {
         print(" \(email)")
     }
     println()
 }
 
-printContact("Rinc", ["i@RincLiu.com", "rinc.liu@gmail.com", "rinc.liu@msn.com", "rinc.liu@yahoo.com"])
+printContact("Rinc", "i@RincLiu.com")
+printContact("Rinc", "i@RincLiu.com", "rinc.liu@gmail.com")
+printContact("Rinc", "i@RincLiu.com", "rinc.liu@gmail.com", "rinc.liu@msn.com")
+printContact("Rinc", "i@RincLiu.com", "rinc.liu@gmail.com", "rinc.liu@msn.com", "rinc.liu@yahoo.com")
 
 
 
