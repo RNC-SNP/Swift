@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // Define Type-Alias:
 typealias NameType = String //Just like `typedef` in C/C++, or `type` in Golang.
 
