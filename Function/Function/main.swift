@@ -147,8 +147,13 @@ println("name: \(name)")
 
 
 
+// Function Type:
+typealias FuncType = (Double, Double) -> Double
+
+
+
 //  Function Type as variable's type:
-var funcDDD : (Double, Double) -> Double
+var funcDDD : FuncType
 
 func multiply(x : Double, y : Double) -> Double {
     return x * y
@@ -160,7 +165,7 @@ println("\(funcDDD(0.1234, 5.6789))")
 
 
 //  Function Type as parameter's type:
-func printFuncResult(fun : (Double, Double) -> Double, x : Double, y : Double) {
+func printFuncResult(fun : FuncType, x : Double, y : Double) {
     println(fun(x, y))
 }
 
@@ -169,7 +174,7 @@ printFuncResult(funcDDD, 0.1234, 5.6789)
 
 
 //  Function Type as return type:
-func getFunc() -> (Double, Double) -> Double {
+func getFunc() -> FuncType {
     return funcDDD
 }
 
