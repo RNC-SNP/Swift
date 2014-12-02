@@ -24,11 +24,11 @@ let funPlus = { (x : Double, y : Double) -> Double in return x + y }
 //  Use the closure as a parameter:
 printFuncResult(0.1234, 5.6789, funPlus)
 
-// Use an anonymous Closure:
+//  Use an anonymous Closure:
 printFuncResult(0.1234, 5.6789, { (x : Double, y : Double) -> Double in return x * y })
 
-// If the Closure is the last parameter, it can be put out as a Function body.
-// This is useful when the Closure's body contains more than one expressions.
+//  If the Closure is the last parameter, it can be put out like a Function body.
+//  This is useful when the Closure's body contains more than one expressions.
 printFuncResult(0.1234, 5.6789) {
     (var x : Double, var y : Double) -> Double in
     x = x * x
