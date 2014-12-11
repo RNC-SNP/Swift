@@ -40,12 +40,12 @@ println(reader.str)
 // And if you want make a property readonly, you need remove the setter and `get` keyword.
 class Rect {
     var width = 0.0, height = 0.0
-    var space : Double { //It's readonly!
+    var space : Double {
         get {
             println("Getting 'space'...")
             return width * height
         }
-        set {
+        set { //The parameter is optional and named `newValue` in default.
             println("Setting 'space' with new value: \(newValue)")
         }
     }
