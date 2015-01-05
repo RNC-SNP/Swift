@@ -262,3 +262,41 @@ println("Earth: \(Planet.Earth.rawValue)") //Read the Enum variable's raw value.
 
 let possiblePlanet : Planet? = Planet(rawValue : 8) //Initialize an Enum variable from a raw value.
 println("Does possiblePlanet exist: \(possiblePlanet != nil)")
+
+
+
+// Operator:
+struct Point {
+    var x : Int
+    var y : Int
+}
+
+//Overload normal operator
+func + (p1 : Point, p2 : Point) -> Point {
+    return Point(x : p1.x + p2.x, y : p1.y + p2.y)
+}
+
+//Overload prefix operator
+prefix func - (p : Point) -> Point {
+    return Point(x : -p.x, y : -p.y)
+}
+
+//Overload postpix operator
+postfix func ++ (p : Point) -> Point {
+    var px = p.x, py = p.y
+    return Point(x : ++px, y : ++py)
+}
+
+//Define new operator
+prefix operator %& {}
+prefix func %& (p : Point) -> Point {
+    return Point(x : p.x % 8, y : p.y % 8)
+}
+
+let p1 = Point(x : 1, y : 3)
+let p2 = Point(x : 5, y : 7)
+let p3 = p1 + p2
+let p4 = -p3
+let p5 = p4++
+let p6 = %&p5
+println("\(p6.x), \(p6.y)")
