@@ -9,11 +9,9 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVAudioRecorderDelegate {
+class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     @IBOutlet weak var btnRecord: UIButton!
     
-    var isRecording : Bool!
-    var isPlaying : Bool!
     var recorder : AVAudioRecorder!
     var player : AVAudioPlayer!
     
@@ -21,9 +19,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        isRecording = false;
-        isPlaying = false;
-        prepare();
+        RecorderHolder.checkPermission(callback: initRecorder)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -33,36 +29,36 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func btnRecordClicked(_ sender: Any) {
-        if RecorderHelper.checkPermission() && recorder != nil {
+        if RecorderHolder.checkPermission() && recorder != nil {
             if recorder.isRecording {
                 recorder.stop()
-                play()
+                btnRecord.setTitle("playing...", for: UIControlState.normal)
             } else {
                 recorder.record()
-                if player != nil {
-                    player.stop()
-                }
+                stopPlaying()
+                btnRecord.setTitle("recording...", for: UIControlState.normal)
             }
         }
     }
     
-    func prepare() {
-        RecorderHelper.checkPermission(callback : initRecorder)
-    }
-    
     func initRecorder() {
         if recorder == nil {
-            recorder = RecorderHelper.getRecorder(file : audioFileName)
+            recorder = RecorderHolder.getRecorder(storeFile: audioFileName)
             recorder.delegate = self
         }
     }
     
     func play() {
-        do {
-            try player = AVAudioPlayer(contentsOf : recorder.url)
+        player = PlayerHolder.getPlayer(url: recorder.url, loop: false)
+        if player != nil {
             player.play()
-        } catch let error as NSError {
-            print("Init AudioPlayer failed:\(error.localizedDescription)\n")
+        }
+        player.delegate = self
+    }
+    
+    func stopPlaying() {
+        if player != nil && player.isPlaying {
+            player.stop()
         }
     }
     
@@ -74,14 +70,34 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    // AVAudioRecorderDelegate:
+    
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
             finishRecording()
+        } else {
+            play()
         }
     }
     
-    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: NSError!) {
-        print("audioRecorderEncodeErrorDidOccur:\(error.localizedDescription)\n")
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        if error != nil {
+            let err = error! as NSError
+            print("audioRecorderEncodeErrorDidOccur:\(err.localizedDescription)\n")
+        }
+    }
+    
+    // AVAudioPlayerDelegate:
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
+        btnRecord.setTitle("Record", for: UIControlState.normal)
+    }
+    
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        if error != nil {
+            let err = error! as NSError
+            print("audioPlayerDecodeErrorDidOccur:\(err.localizedDescription)\n")
+        }
     }
 }
 

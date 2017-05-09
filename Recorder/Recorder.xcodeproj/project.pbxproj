@@ -13,7 +13,8 @@
 		80F337621EC14F4200986E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80F337611EC14F4200986E9A /* Assets.xcassets */; };
 		80F337651EC14F4200986E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80F337631EC14F4200986E9A /* LaunchScreen.storyboard */; };
 		80F337911EC1689D00986E9A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F337901EC1689D00986E9A /* AVFoundation.framework */; };
-		80F337931EC1ADB900986E9A /* RecorderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F337921EC1ADB900986E9A /* RecorderHelper.swift */; };
+		80F337931EC1ADB900986E9A /* RecorderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F337921EC1ADB900986E9A /* RecorderHolder.swift */; };
+		80F337951EC1D8A700986E9A /* PlayerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F337941EC1D8A700986E9A /* PlayerHolder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		80F337641EC14F4200986E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80F337661EC14F4200986E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80F337901EC1689D00986E9A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		80F337921EC1ADB900986E9A /* RecorderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderHelper.swift; sourceTree = "<group>"; };
+		80F337921EC1ADB900986E9A /* RecorderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderHolder.swift; sourceTree = "<group>"; };
+		80F337941EC1D8A700986E9A /* PlayerHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHolder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,8 @@
 				80F337611EC14F4200986E9A /* Assets.xcassets */,
 				80F337631EC14F4200986E9A /* LaunchScreen.storyboard */,
 				80F337661EC14F4200986E9A /* Info.plist */,
-				80F337921EC1ADB900986E9A /* RecorderHelper.swift */,
+				80F337921EC1ADB900986E9A /* RecorderHolder.swift */,
+				80F337941EC1D8A700986E9A /* PlayerHolder.swift */,
 			);
 			path = Recorder;
 			sourceTree = "<group>";
@@ -152,7 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80F337931EC1ADB900986E9A /* RecorderHelper.swift in Sources */,
+				80F337951EC1D8A700986E9A /* PlayerHolder.swift in Sources */,
+				80F337931EC1ADB900986E9A /* RecorderHolder.swift in Sources */,
 				80F3375D1EC14F4200986E9A /* ViewController.swift in Sources */,
 				80F3375B1EC14F4200986E9A /* AppDelegate.swift in Sources */,
 			);
